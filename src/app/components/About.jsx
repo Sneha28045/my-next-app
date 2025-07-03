@@ -1,32 +1,26 @@
-// app/components/About.tsx
-// app/components/About.tsx
 export default function About() {
   return (
-    <section className="py-16 px-4 max-w-5xl mx-auto">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-        {/* Image */}
-        <div className="w-full">
+    <section className="min-h-screen py-16 px-4 bg-white flex items-center">
+      <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+        
+        {/* Image - larger now */}
+        <div className="w-full flex justify-center">
           <img
-            src="/headshot.jpg" // Make sure to put your image in /public
+            src="/images/headshot.jpg"
             alt="Profile picture"
-            className="rounded-lg shadow-lg w-full object-cover"
+            className="rounded-lg shadow-lg w-[380px] md:w-[480px] h-auto object-cover"
           />
         </div>
 
         {/* Text */}
-        <div>
-          <h2 className="text-3xl font-bold mb-4">About Dr. Serena Blake</h2>
-          <p className="text-gray-600 mb-4">
-            Dr. Serena Blake is a licensed clinical psychologist (PsyD) based in Los Angeles, CA, with eight years of experience and over 500 client sessions. She blends evidence-based approaches—like cognitive-behavioral therapy and mindfulness—with compassionate, personalized care to help you overcome anxiety, strengthen relationships, and heal from trauma.
-          </p>
-          <p className="text-gray-600 mb-4">
-            Whether you meet in her Maplewood Drive office or connect virtually via Zoom, Dr. Blake is committed to creating a safe, supportive space for you to thrive.
-          </p>
+        <div className="font-sans text-gray-800 text-lg md:text-xl leading-relaxed">
+          <h2 className="text-4xl font-bold mb-6 text-[#6d4d3f]">
+            Dr. Serena Blake, PsyD (Clinical Psychologist)
+          </h2>
 
-          {/* Session Fees */}
-          <h3 className="text-2xl font-semibold mb-4 mt-8">Session Fees</h3>
-          <p className="text-gray-700 mb-2">$200 / individual session</p>
-          <p className="text-gray-700">$240 / couples session</p>
+          <p className="mb-6">
+            Dr. Serena Blake is a licensed clinical psychologist (PsyD) based in Los Angeles, CA, with eight years of experience and over 500 client sessions. She blends evidence-based approaches—like cognitive-behavioral therapy and mindfulness—with compassionate, personalized care to help you overcome anxiety, strengthen relationships, and heal from trauma. Whether you meet in her Maplewood Drive office or connect virtually via Zoom, Dr. Blake is committed to creating a safe, supportive space for you to thrive.
+          </p>
         </div>
       </div>
     </section>
