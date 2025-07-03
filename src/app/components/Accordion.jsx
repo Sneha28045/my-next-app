@@ -42,7 +42,7 @@ export default function Accordion() {
     <div className="bg-[#b5dbdf] flex flex-col">
       <section className="flex-grow pt-16 pb-16">
         <div className="max-w-screen-lg mx-auto px-4 font-sans">
-          <p className="font-bold text-4xl md:text-6xl text-left text-green-900 mb-10">
+          <p className="font-bold text-[3.75rem] leading-[1] text-left text-green-900 mb-10">
             Frequently Asked Questions
           </p>
 
@@ -71,7 +71,9 @@ export default function Accordion() {
               </button>
 
               {activeIndex === index && (
-                <div className="pb-6 text-xl text-gray-700">{item.content}</div>
+                <div className="pb-5 text-sm leading-5 text-gray-700">
+                  {item.content}
+                </div>
               )}
             </div>
           ))}
@@ -80,3 +82,4 @@ export default function Accordion() {
     </div>
   );
 }
+

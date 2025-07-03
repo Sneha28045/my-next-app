@@ -3,7 +3,6 @@
 import { useState, useRef } from "react";
 import dynamic from "next/dynamic";
 
-// Dynamically import ReCAPTCHA with SSR disabled
 const ReCAPTCHA = dynamic(() => import("react-google-recaptcha"), { ssr: false });
 
 export default function ContactForm() {
@@ -72,29 +71,30 @@ export default function ContactForm() {
   return (
     <div className="bg-white px-4 md:px-16 py-16 flex flex-col md:flex-row justify-center items-start gap-10 md:gap-20">
       {/* Contact Info Section */}
-      <div className="w-full max-w-sm border border-black rounded-md p-8 text-[#1e1e1e] space-y-6">
+      <div className="w-full max-w-sm md:ml-[-40px] border border-black rounded-md p-8 text-[#1e1e1e] space-y-6">
         <div>
-          <h2 className="text-xl font-bold mb-1">Our Office</h2>
-          <p>1287 Maplewood Drive<br />Los Angeles, CA 90026</p>
+          <h2 className="text-3xl leading-10 font-bold mb-1">Our Office</h2>
+          <p className="text-lg leading-7">
+            1287 Maplewood Drive<br />
+            Los Angeles, CA 90026
+          </p>
         </div>
         <div>
-          <h2 className="text-xl font-bold mb-1">Office Hours</h2>
-          <p>In-person: Tue & Thu, 10 AM – 6 PM<br />Virtual: Mon, Wed & Fri, 1 PM – 5 PM</p>
+          <h2 className="text-[2.25rem] leading-[2.5rem] font-bold mb-1">Office Hours</h2>
+          <p className="text-base leading-7">
+            In-person: Tue & Thu, 10 AM – 6 PM<br />
+            Virtual: Mon, Wed & Fri, 1 PM – 5 PM
+          </p>
         </div>
         <div>
-          <h2 className="text-xl font-bold mb-1">Contact</h2>
-          <p>📞 (323) 555-0192<br />📧 <a href="mailto:serena@blakepsychology.com" className="underline">serena@blakepsychology.com</a></p>
-        </div>
-        <div>
-          <h2 className="text-xl font-bold mb-1">Experience</h2>
-          <p>🧠 8 years of practice, 500+ sessions</p>
-        </div>
-        <div>
-          <h2 className="text-xl font-bold mb-1">Session Rates</h2>
-          <ul className="list-disc list-inside">
-            <li>💳 $200 / individual session</li>
-            <li>💳 $240 / couples session</li>
-          </ul>
+          <h2 className="text-[2.25rem] leading-[2.5rem] font-bold mb-1">Contact</h2>
+          <p className="text-lg leading-7">📞 (323) 555-0192</p>
+          <p className="text-lg leading-7">
+            📧{" "}
+            <a href="mailto:serena@blakepsychology.com" className="underline">
+              serena@blakepsychology.com
+            </a>
+          </p>
         </div>
       </div>
 
@@ -165,7 +165,9 @@ export default function ContactForm() {
               placeholder="Mornings / Afternoons / Evenings"
               className="w-full border border-black rounded px-3 py-2"
             />
-            {errors.preferredTime && <p className="text-red-600 text-sm">{errors.preferredTime}</p>}
+            {errors.preferredTime && (
+              <p className="text-red-600 text-sm">{errors.preferredTime}</p>
+            )}
           </div>
           <div>
             <label className="block font-medium mb-1">Contact Method</label>

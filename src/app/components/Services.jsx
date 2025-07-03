@@ -26,11 +26,13 @@ const services = [
 export default function Services() {
   return (
     <section className="py-16 px-4 bg-[#f8f6f1]">
-      <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-4xl font-bold text-green-900 mb-12">Services & Specialties</h2>
+      <div className="max-w-6xl mx-auto font-inherit">
+        <h2 className="text-4xl font-bold text-green-900 text-start text-lg leading-7 mb-12 lg:mb-16">
+          Services & Specialties
+        </h2>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-3 gap-10">
+        <div className="grid md:grid-cols-3 gap-10 mb-16">
           {services.map((service, index) => (
             <div
               key={index}
@@ -43,14 +45,28 @@ export default function Services() {
                 height={250}
                 className="rounded-md mb-4"
               />
-              <h3 className="text-xl font-semibold mb-2 text-green-900">{service.title}</h3>
-              <p className="text-gray-700 text-sm">{service.description}</p>
+              <h3 className="text-lg leading-7 font-semibold mb-2 text-green-900">
+                {service.title}
+              </h3>
+              <p className="text-sm leading-5 text-gray-700">
+                {service.description}
+              </p>
             </div>
           ))}
         </div>
 
-       
-      
+        {/* Centered Session Rates */}
+        <div className="flex justify-center">
+          <div className="bg-white rounded-lg shadow p-6 w-full max-w-md text-center transform transition duration-300 hover:scale-105 hover:shadow-xl">
+            <h3 className="text-xl font-semibold mb-2 text-green-900">
+              Session Rates
+            </h3>
+            <ul className="text-gray-700 text-sm list-disc list-inside space-y-1 text-left inline-block">
+              <li>💳 $200 / individual session</li>
+              <li>💳 $240 / couples session</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
   );

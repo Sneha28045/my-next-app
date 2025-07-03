@@ -1,6 +1,8 @@
+"use client";
+
 export default function Banner() {
   return (
-    <section className="relative text-white min-h-screen flex items-center justify-center px-4 text-center overflow-hidden">
+    <section className="relative text-white min-h-screen flex items-center justify-center px-4 text-center overflow-hidden mx-auto">
       {/* Animated Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center animate-bg-pan"
@@ -15,25 +17,26 @@ export default function Banner() {
 
       {/* Main Content */}
       <div className="relative z-10 max-w-3xl">
-        <h1
-          className="font-bold mb-4 drop-shadow-lg"
-          style={{
-            fontSize: "3.00rem",   // equals 36px
-            lineHeight: "2.5rem", // equals 40px
-          }}
-        >
+        <h1 className="text-4xl leading-10 font-bold mb-4 drop-shadow-lg font-[inherit]">
           Welcome To Our Website
         </h1>
-        <p className="text-lg md:text-xl mb-9 drop-shadow">
+        <p className="text-xl leading-8 mt-4 mb-4 drop-shadow font-[inherit]">
           Discover our amazing features and services crafted just for you.
         </p>
         <a
           href="#get-started"
-          className="inline-block bg-white text-[#005c73] font-semibold text-xl px-6 py-3 rounded-lg shadow hover:bg-gray-100 transition"
+          className="inline-block bg-white text-[#005c73] text-xl px-6 py-3 rounded-lg shadow hover:bg-gray-100 transition font-[inherit] tracking-[inherit]"
         >
           Book a Free Consult
         </a>
+
+        {/* Experience Text */}
+        <p className="mt-6 text-xs leading-4 drop-shadow font-[inherit] underline">
+          🧠 8 years of practice, 500+ sessions
+        </p>
       </div>
     </section>
   );
 }
+
+
