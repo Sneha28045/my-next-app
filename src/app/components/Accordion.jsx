@@ -54,9 +54,8 @@ export default function Accordion() {
               >
                 <span>{item.title}</span>
                 <svg
-                  className={`w-6 h-6 transform transition-transform duration-300 ${
-                    activeIndex === index ? "rotate-180" : ""
-                  }`}
+                  className={`w-6 h-6 transform transition-transform duration-300 ${activeIndex === index ? "rotate-180" : ""
+                    }`}
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -71,7 +70,7 @@ export default function Accordion() {
               </button>
 
               {activeIndex === index && (
-                <div className="pb-5 text-sm leading-5 text-gray-700">
+                <div className="pb-4 pt-0 font-para text-xl text-gray-700">
                   {item.content}
                 </div>
               )}

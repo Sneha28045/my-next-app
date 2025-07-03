@@ -27,7 +27,7 @@ export default function Services() {
   return (
     <section className="py-16 px-4 bg-[#f8f6f1]">
       <div className="max-w-6xl mx-auto font-inherit">
-        <h2 className="text-4xl font-bold text-green-900 text-start text-lg leading-7 mb-12 lg:mb-16">
+        <h2 className="font-bold mb-2 text-4xl md:text-5xl xl:text-6xl pb-4 flex gap-2 md:gap-4 text-center !block md:text-left md:mb-12 text-green-900">
           Services & Specialties
         </h2>
 

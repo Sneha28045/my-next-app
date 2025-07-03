@@ -1,13 +1,9 @@
+// src/app/components/Contact.tsx
 "use client";
 
-import { useState, useRef } from "react";
-import dynamic from "next/dynamic";
+import React, { FormEvent, useState } from "react";
 
-const ReCAPTCHA = dynamic(() => import("react-google-recaptcha"), { ssr: false });
-
-export default function ContactForm() {
-  const recaptchaRef = useRef<any>(null);
-
+export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -42,19 +38,14 @@ export default function ContactForm() {
     return Object.keys(newErrors).length === 0;
   };
 
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const token = await recaptchaRef.current?.getValue();
-    if (!token) {
-      alert("Please complete the reCAPTCHA.");
-      return;
-    }
+
 
     if (validate()) {
-      console.log({ ...formData, recaptchaToken: token });
       alert("Form submitted successfully!");
-      recaptchaRef.current?.reset();
 
       setFormData({
         name: "",
@@ -90,10 +81,7 @@ export default function ContactForm() {
           <h2 className="text-[2.25rem] leading-[2.5rem] font-bold mb-1">Contact</h2>
           <p className="text-lg leading-7">📞 (323) 555-0192</p>
           <p className="text-lg leading-7">
-            📧{" "}
-            <a href="mailto:serena@blakepsychology.com" className="underline">
-              serena@blakepsychology.com
-            </a>
+            📧 <a href="mailto:serena@blakepsychology.com" className="underline">serena@blakepsychology.com</a>
           </p>
         </div>
       </div>
@@ -110,73 +98,38 @@ export default function ContactForm() {
         <form onSubmit={handleSubmit} className="space-y-4 text-[#1e1e1e]">
           <div>
             <label className="block font-medium mb-1">Name</label>
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              placeholder="Name"
-              className="w-full border border-black rounded px-3 py-2"
-            />
+            <input type="text" name="name" value={formData.name} onChange={handleChange}
+              className="w-full border border-black rounded px-3 py-2" placeholder="Name" />
             {errors.name && <p className="text-red-600 text-sm">{errors.name}</p>}
           </div>
           <div>
             <label className="block font-medium mb-1">Email</label>
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              placeholder="you@example.com"
-              className="w-full border border-black rounded px-3 py-2"
-            />
+            <input type="email" name="email" value={formData.email} onChange={handleChange}
+              className="w-full border border-black rounded px-3 py-2" placeholder="you@example.com" />
             {errors.email && <p className="text-red-600 text-sm">{errors.email}</p>}
           </div>
           <div>
             <label className="block font-medium mb-1">Phone</label>
-            <input
-              type="tel"
-              name="phone"
-              value={formData.phone}
-              onChange={handleChange}
-              placeholder="(555) 234–5678"
-              className="w-full border border-black rounded px-3 py-2"
-            />
+            <input type="tel" name="phone" value={formData.phone} onChange={handleChange}
+              className="w-full border border-black rounded px-3 py-2" placeholder="(555) 234–5678" />
             {errors.phone && <p className="text-red-600 text-sm">{errors.phone}</p>}
           </div>
           <div>
             <label className="block font-medium mb-1">Message</label>
-            <textarea
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              placeholder="What brings you here?"
-              className="w-full border border-black rounded px-3 py-2 h-24"
-            />
+            <textarea name="message" value={formData.message} onChange={handleChange}
+              className="w-full border border-black rounded px-3 py-2 h-24" placeholder="What brings you here?" />
             {errors.message && <p className="text-red-600 text-sm">{errors.message}</p>}
           </div>
           <div>
             <label className="block font-medium mb-1">Preferred Time</label>
-            <input
-              type="text"
-              name="preferredTime"
-              value={formData.preferredTime}
-              onChange={handleChange}
-              placeholder="Mornings / Afternoons / Evenings"
-              className="w-full border border-black rounded px-3 py-2"
-            />
-            {errors.preferredTime && (
-              <p className="text-red-600 text-sm">{errors.preferredTime}</p>
-            )}
+            <input type="text" name="preferredTime" value={formData.preferredTime} onChange={handleChange}
+              className="w-full border border-black rounded px-3 py-2" placeholder="Mornings / Evenings" />
+            {errors.preferredTime && <p className="text-red-600 text-sm">{errors.preferredTime}</p>}
           </div>
           <div>
             <label className="block font-medium mb-1">Contact Method</label>
-            <select
-              name="contactMethod"
-              value={formData.contactMethod}
-              onChange={handleChange}
-              className="w-full border border-black rounded px-3 py-2"
-            >
+            <select name="contactMethod" value={formData.contactMethod} onChange={handleChange}
+              className="w-full border border-black rounded px-3 py-2">
               <option value="">Select method</option>
               <option value="phone">Phone</option>
               <option value="email">Email</option>
@@ -184,23 +137,15 @@ export default function ContactForm() {
             </select>
           </div>
           <div className="flex items-center gap-2">
-            <input
-              type="checkbox"
-              name="consent"
-              checked={formData.consent}
-              onChange={handleChange}
-              className="h-4 w-4"
-            />
+            <input type="checkbox" name="consent" checked={formData.consent} onChange={handleChange}
+              className="h-4 w-4" />
             <label className="text-sm">I agree to be contacted</label>
             {errors.consent && <p className="text-red-600 text-sm ml-2">{errors.consent}</p>}
           </div>
 
-          <ReCAPTCHA sitekey="6LfXWHUrAAAAALGyOipHlrT3UjZ7lPjtgkBmNr6N" ref={recaptchaRef} />
 
-          <button
-            type="submit"
-            className="w-full bg-[#1e1e1e] text-white py-2 rounded hover:bg-black mt-2"
-          >
+          <button type="submit"
+            className="w-full bg-[#1e1e1e] text-white py-2 rounded hover:bg-black mt-2">
             Submit
           </button>
 
@@ -211,4 +156,5 @@ export default function ContactForm() {
       </div>
     </div>
   );
+
 }
